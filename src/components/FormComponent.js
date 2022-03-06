@@ -2,11 +2,16 @@ import React from "react";
 import styled from "styled-components";
 import search from "../img/search.svg";
 
-function FormComponent({ searchLocation }) {
+function FormComponent({ searchLocation, cityList }) {
     return (
         <form onSubmit={(e) => searchLocation(e)}>
             <StyledInput type="text" placeholder="Search" />
             <Img src={search} alt="" />
+            <div>
+                {cityList.map((city) => (
+                    <div key={city.id}>{city.local_names.fr}</div>
+                ))}
+            </div>
         </form>
     );
 }
