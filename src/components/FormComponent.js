@@ -2,9 +2,9 @@ import React from "react";
 import styled from "styled-components";
 import search from "../img/search.svg";
 
-function FormComponent() {
+function FormComponent({ searchLocation }) {
     return (
-        <form>
+        <form onSubmit={(e) => searchLocation(e)}>
             <StyledInput type="text" placeholder="Search" />
             <Img src={search} alt="" />
         </form>
