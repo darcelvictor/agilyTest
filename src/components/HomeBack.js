@@ -2,10 +2,10 @@ import React from "react";
 import arrow from "../img/arrow.svg";
 import styled from "styled-components";
 
-function HomeBack() {
+function HomeBack({ modifyCity }) {
     return (
         <>
-            <MyButton>
+            <MyButton onClick={() => modifyCity(false)}>
                 <img src={arrow} alt="back to home" />
             </MyButton>
         </>

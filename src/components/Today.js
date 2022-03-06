@@ -1,10 +1,13 @@
 import React from "react";
 import styled from "styled-components";
 
-function Today() {
+function Today({}) {
+    const data = require("./test.json");
     const date = "Lundi 3 mars";
-    const logo = "10d";
+    const logo = data.daily[0].weather[0].icon;
     const icon = `https://openweathermap.org/img/wn/${logo}@4x.png`;
+
+    // const temp = data.daily[0].temp;
 
     return (
         <TodayCard>
@@ -12,13 +15,13 @@ function Today() {
             <h1>{date}</h1>
             <Data>
                 <ul>
-                    <li>Jour - 26,6°C</li>
-                    <li>Nuit - 17,1° C</li>
-                    <li>Humidité - 34%</li>
+                    {/* <li>Jour - {data.main.temp}</li> */}
+                    <li>Nuit - ° C</li>
+                    <li>Humidité - {data.daily[0].humidity} %</li>
                 </ul>
                 <ul>
-                    <li>Pression - 1019hPa</li>
-                    <li>Vent - 1,54 Km/h</li>
+                    <li>Pression - {data.daily[0].pressure} Pa</li>
+                    <li>Vent - {data.daily[0].wind_speed} Km/h</li>
                 </ul>
             </Data>
         </TodayCard>

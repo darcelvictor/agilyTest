@@ -1,15 +1,16 @@
 import React from "react";
 import Day from "./Day";
 import styled from "styled-components";
+import { v4 as uuidv4 } from "uuid";
 
 function Week({ dataArray }) {
+    const data = require("./test.json");
+    data.daily.forEach((day) => {
+        day.id = uuidv4();
+    });
     return (
         <DaysList>
-            <Day />
-            <Day />
-            <Day />
-            <Day />
-            <Day />
+            
             <Day />
         </DaysList>
     );
