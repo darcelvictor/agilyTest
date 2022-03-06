@@ -8,10 +8,11 @@ import { v4 as uuidv4 } from "uuid";
 function FormComponent({ modifyCity }) {
     const [cityList, setCityList] = useState([]);
     const [stateInput, setStateInput] = useState("");
-    // setLocation = "Dallas";
+
+    const myApi = process.env.REACT_APP_MY_API;
 
     const searchLocation = (e) => {
-        const url = `http://api.openweathermap.org/geo/1.0/direct?q=${stateInput}&limit=5&appid=2adc5af4e8e1ddb2fe2a0640ce3fd906`;
+        const url = `http://api.openweathermap.org/geo/1.0/direct?q=${stateInput}&limit=5&appid=${myApi}`;
         e.preventDefault();
         axios
             .get(url)

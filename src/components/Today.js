@@ -1,8 +1,9 @@
 import React from "react";
 import styled from "styled-components";
 
-function Today({data}) {
+function Today({ data }) {
     const date = "Lundi 3 mars";
+
     const logo = data.daily[0].weather[0].icon;
     const icon = `https://openweathermap.org/img/wn/${logo}@4x.png`;
 

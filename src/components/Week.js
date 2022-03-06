@@ -3,14 +3,12 @@ import Day from "./Day";
 import styled from "styled-components";
 import { v4 as uuidv4 } from "uuid";
 
-function Week({ dataArray }) {
-    const data = require("./test.json");
+function Week({ data }) {
     data.daily.forEach((day) => {
         day.id = uuidv4();
     });
     return (
         <DaysList>
-            
             <Day />
         </DaysList>
     );
