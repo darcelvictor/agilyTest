@@ -1,14 +1,47 @@
-import React from "react";
+import { useState } from "react";
 import styled from "styled-components";
 import search from "../img/search.svg";
 import City from "./City";
+import axios from "axios";
+import { v4 as uuidv4 } from "uuid";
 
-function FormComponent({ searchLocation, cityList }) {
+function FormComponent() {
+    const [cityList, setCityList] = useState([]);
+    const [stateInput, setStateInput] = useState("");
+    // setLocation = "Dallas";
+
+    const searchLocation = (e) => {
+        const url = `http://api.openweathermap.org/geo/1.0/direct?q=${stateInput}&limit=5&appid=2adc5af4e8e1ddb2fe2a0640ce3fd906`;
+        e.preventDefault();
+        axios
+            .get(url)
+            .then((response) => {
+                setCityList(response.data);
+                const cityListId = response.data;
+                cityListId.forEach((city) => {
+                    city.id = uuidv4();
+                });
+                setCityList(cityListId);
+            })
+            .catch(function (error) {
+                console.log("error !");
+                return Promise.reject(error);
+            });
+    };
+
+    const linkedInput = (e) => {
+        setStateInput(e);
+    };
+
     const cityListNotEmpty = cityList.length > 0 ? true : false;
 
     return (
         <form onSubmit={(e) => searchLocation(e)}>
-            <StyledInput type="text" placeholder="Search" />
+            <StyledInput
+                type="text"
+                placeholder="Search"
+                onInput={(e) => linkedInput(e.target.value)}
+            />
             <Img src={search} alt="" />
             {cityListNotEmpty && (
                 <List>
