@@ -1,7 +1,7 @@
 import FormComponent from "../components/FormComponent";
 import styled from "styled-components";
 
-function FormView({ searchLocation, cityList }) {
+function FormView({ modifyCity }) {
     return (
         <Background>
             <Wrap>
@@ -10,10 +10,7 @@ function FormView({ searchLocation, cityList }) {
                     <br />
                     Weather App
                 </h1>
-                <FormComponent
-                    searchLocation={searchLocation}
-                    cityList={cityList}
-                />
+                <FormComponent modifyCity={modifyCity} />
             </Wrap>
         </Background>
     );

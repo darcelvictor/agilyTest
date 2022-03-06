@@ -1,16 +1,9 @@
 import React from "react";
 import styled from "styled-components";
-import { useState } from "react";
 
-function City({ city }) {
-    const [selectedCity, setSelectedCity] = useState();
-
-    const handleClick = (city) => {
-        console.log(city);
-    };
-
+function City({ city, modifyCity }) {
     return (
-        <CityContainer key={city.id} onClick={() => handleClick(city)}>
+        <CityContainer key={city.id} onClick={() => modifyCity(city)}>
             {city.name} <span>{city.state}</span>
         </CityContainer>
     );

@@ -5,7 +5,7 @@ import City from "./City";
 import axios from "axios";
 import { v4 as uuidv4 } from "uuid";
 
-function FormComponent() {
+function FormComponent({ modifyCity }) {
     const [cityList, setCityList] = useState([]);
     const [stateInput, setStateInput] = useState("");
     // setLocation = "Dallas";
@@ -46,7 +46,11 @@ function FormComponent() {
             {cityListNotEmpty && (
                 <List>
                     {cityList.map((city) => (
-                        <City city={city} key={city.id} />
+                        <City
+                            city={city}
+                            key={city.id}
+                            modifyCity={modifyCity}
+                        />
                     ))}
                 </List>
             )}

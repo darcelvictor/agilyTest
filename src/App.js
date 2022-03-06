@@ -11,9 +11,21 @@ import "@fontsource/poppins/400.css";
 function App() {
     const [data, setData] = useState({});
     const [location, setLocation] = useState("");
-    const [city, SetCity] = useState(true);
+    const [selectedCity, setSelectedCity] = useState(false);
 
-    return <>{city ? <FormView /> : <CityView />}</>;
+    const modifyCity = (data) => {
+        setSelectedCity(data);
+        console.log(selectedCity);
+    };
+    return (
+        <>
+            {selectedCity ? (
+                <CityView modifyCity={modifyCity} />
+            ) : (
+                <FormView modifyCity={modifyCity} />
+            )}
+        </>
+    );
 }
 
 export default App;
