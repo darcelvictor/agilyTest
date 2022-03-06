@@ -1,22 +1,32 @@
 import React from "react";
 import styled from "styled-components";
 import search from "../img/search.svg";
+import City from "./City";
 
 function FormComponent({ searchLocation, cityList }) {
+    const cityListNotEmpty = cityList.length > 0 ? true : false;
+
     return (
         <form onSubmit={(e) => searchLocation(e)}>
             <StyledInput type="text" placeholder="Search" />
             <Img src={search} alt="" />
-            <div>
-                {cityList.map((city) => (
-                    <div key={city.id}>{city.local_names.fr}</div>
-                ))}
-            </div>
+            {cityListNotEmpty && (
+                <List>
+                    {cityList.map((city) => (
+                        <City city={city} key={city.id} />
+                    ))}
+                </List>
+            )}
         </form>
     );
 }
 
 export default FormComponent;
+const List = styled.ul`
+    background-color: #fff;
+    width: 595px;
+    margin-top: -20px;
+`;
 
 const StyledInput = styled.input`
     width: 595px;
