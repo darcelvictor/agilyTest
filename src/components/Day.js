@@ -3,7 +3,6 @@ import styled from "styled-components";
 import { getDayName, getMonthName, temp } from "../helper";
 
 function Day({ data }) {
-    console.log("data : ", data);
     const logo = data.weather[0].icon;
     const icon = `https://openweathermap.org/img/wn/${logo}@4x.png`;
 

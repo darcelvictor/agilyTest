@@ -3,6 +3,8 @@ import HomeBack from "../components/HomeBack";
 import Today from "../components/Today";
 import Week from "../components/Week";
 import axios from "axios";
+import styled from "styled-components";
+
 
 function CityView({ modifyCity, city }) {
     const [data, setData] = useState([]);
@@ -10,7 +12,7 @@ function CityView({ modifyCity, city }) {
 
     useEffect(() => {
         const myApi = process.env.REACT_APP_MY_API;
-        const url = `https://api.openweathermap.org/data/2.5/onecall?lat=${city.lat}&lon=${city.lon}&lang=fr&appid=${myApi}`;
+        const url = `https://api.openweathermap.org/data/2.5/onecall?lat=${city.lat}&lon=${city.lon}&lang=fr&appid=${myApi}&units=metric`;
         axios
             .get(url)
             .then((response) => {
@@ -37,3 +39,4 @@ function CityView({ modifyCity, city }) {
 }
 
 export default CityView;
+

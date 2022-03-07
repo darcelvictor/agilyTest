@@ -8,8 +8,6 @@ function Week({ data }) {
         day.id = uuidv4();
     });
 
-    console.log(data.daily[0]);
-
     return (
         <DaysList>
             {data.daily.map((day) => {

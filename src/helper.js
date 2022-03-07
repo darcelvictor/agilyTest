@@ -1,7 +1,6 @@
 export const getDayName = (data) => {
     // const today = new Date(data).getDay();
     const today = new Date(data * 1000).getDay();
-    console.log(today);
     const days = [
         "Dimanche",
         "Lundi",
@@ -15,14 +14,12 @@ export const getDayName = (data) => {
 };
 
 export const temp = (x) => {
-    x = x - 273.15;
     x = x.toLocaleString(undefined, { minimumFractionDigits: 2 });
     return x;
 };
 
 export const getMonthName = (data) => {
     const today = new Date(data * 1000).getMonth();
-
     const months = [
         "janvier",
         "fevrier",

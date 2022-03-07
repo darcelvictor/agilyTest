@@ -46,13 +46,16 @@ function FormComponent({ modifyCity }) {
             <Img src={search} alt="" />
             {cityListNotEmpty && (
                 <List>
-                    {cityList.map((city) => (
-                        <City
-                            city={city}
-                            key={city.id}
-                            modifyCity={modifyCity}
-                        />
-                    ))}
+                    {cityList.map((city) => {
+                        console.log(city.id);
+                        return (
+                            <City
+                                city={city}
+                                key={city.id}
+                                modifyCity={modifyCity}
+                            />
+                        );
+                    })}
                 </List>
             )}
         </form>
