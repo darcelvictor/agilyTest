@@ -1,18 +1,20 @@
 import React from "react";
 import styled from "styled-components";
+import { getDayName, getMonthName, temp } from "../helper";
 
-function Day() {
-    const logo = "10d";
+function Day({ data }) {
+    console.log("data : ", data);
+    const logo = data.weather[0].icon;
     const icon = `https://openweathermap.org/img/wn/${logo}@4x.png`;
 
     return (
         <DayCard>
             <img src={icon} alt="weather icon" />
             <div>
-                <h2>Jeudi</h2>
-                <p>8 mars</p>
+                <h2>{getDayName(data.dt)}</h2>
+                <p>{getMonthName(data.dt)}</p>
             </div>
-            <Temp>30c°</Temp>
+            <Temp>{temp(data.feels_like.day)}c°</Temp>
         </DayCard>
     );
 }

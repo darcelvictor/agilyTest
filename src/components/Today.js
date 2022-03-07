@@ -1,22 +1,23 @@
 import React from "react";
 import styled from "styled-components";
+import { getDayName, temp } from "../helper";
 
 function Today({ data }) {
-    const date = "Lundi 3 mars";
-
     const logo = data.daily[0].weather[0].icon;
     const icon = `https://openweathermap.org/img/wn/${logo}@4x.png`;
 
-    // const temp = data.daily[0].temp;
+
+    const todayInLetter = getDayName(data.daily[0].dt);
+
 
     return (
         <TodayCard>
             <img src={icon} alt="weather icon" />
-            <h1>{date}</h1>
+            <h1>{todayInLetter}</h1>
             <Data>
                 <ul>
-                    {/* <li>Jour - {data.main.temp}</li> */}
-                    <li>Nuit - ° C</li>
+                    <li>Jour - {temp(data.current.temp)}° C</li>
+                    <li>Nuit - {temp(data.current.dew_point)}° C</li>
                     <li>Humidité - {data.daily[0].humidity} %</li>
                 </ul>
                 <ul>

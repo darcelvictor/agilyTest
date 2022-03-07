@@ -7,9 +7,14 @@ function Week({ data }) {
     data.daily.forEach((day) => {
         day.id = uuidv4();
     });
+
+    console.log(data.daily[0]);
+
     return (
         <DaysList>
-            <Day />
+            {data.daily.map((day) => {
+                return <Day data={day} key={day.id} />;
+            })}
         </DaysList>
     );
 }

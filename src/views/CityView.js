@@ -10,9 +10,7 @@ function CityView({ modifyCity, city }) {
 
     useEffect(() => {
         const myApi = process.env.REACT_APP_MY_API;
-
         const url = `https://api.openweathermap.org/data/2.5/onecall?lat=${city.lat}&lon=${city.lon}&lang=fr&appid=${myApi}`;
-
         axios
             .get(url)
             .then((response) => {
@@ -23,7 +21,7 @@ function CityView({ modifyCity, city }) {
                 console.log("error !");
                 return Promise.reject(error);
             });
-    }, []);
+    }, [city]);
 
     return (
         <>

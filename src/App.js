@@ -11,7 +11,6 @@ import "@fontsource/poppins/400.css";
 function App() {
     const [selectedCity, setSelectedCity] = useState(false);
 
-    const myApi = process.env.REACT_APP_MY_API;
 
     const modifyCity = (data) => {
         setSelectedCity(data);
